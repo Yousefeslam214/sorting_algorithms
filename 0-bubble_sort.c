@@ -1,16 +1,5 @@
 #include "sort.h"
 
-/**
- * swap - function to swap two integers in an array.
- * @x: first integer
- * @y: second integer
- */
-void swap(int *x, int *y)
-{
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
 
 /**
  * bubble_sort - function to implement the bubble sort algorithm on an array.
