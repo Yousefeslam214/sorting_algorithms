@@ -54,7 +54,7 @@ int partition(int arr[], int low, int high, size_t size)
 * @high: high index
 * @size: size of the array
 */
-void quicksort(int arr[], ssize_t low, ssize_t high, int size)
+void quicksort(int arr[], size_t low, size_t high, int size)
 {
 	int idx;
 

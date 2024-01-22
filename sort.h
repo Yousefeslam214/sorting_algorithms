@@ -29,7 +29,7 @@ void print(int arr[], int size);
 void swap(int *x, int *y);
 void swap(int *a, int *b);
 int partition(int arr[], int low, int high, size_t size);
-void quicksort(int arr[], ssize_t low, ssize_t high, int size);
+void quicksort(int arr[], size_t low, size_t high, int size);
 void quick_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
