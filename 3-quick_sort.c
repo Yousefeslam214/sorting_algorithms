@@ -22,21 +22,23 @@ void swap(int *a, int *b)
  * @size: size of the array
  * Return: pivot element position
  */
-int partition(int arr[], int low, int high, size_t size) {
-    int pivot = arr[low];
-    int k = high;
+int partition(int arr[], int low, int high, size_t size)
+{
+        int pivot = arr[low];
+        int k = high;
     
-    for(int i = high; i > low; i--)
-    {
-        if(arr[i] > pivot)
+        for(int i = high; i > low; i--)
         {
-            swap(&arr[i], &arr[k--]);
+
+                if(arr[i] > pivot)
+                {
+                        swap(&arr[i], &arr[k--]);
+                }
         }
-    }
-    swap(&arr[low], &arr[k]);
-    print_array(arr, size);
-    
-    return k;
+        swap(&arr[low], &arr[k]);
+        print_array(arr, size);
+
+        return k;
 }
 
 /**
