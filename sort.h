@@ -17,9 +17,9 @@
  */
 typedef struct listint_s
 {
-	const int n;
-	struct listint_s *prev;
-	struct listint_s *next;
+        const int n;
+        struct listint_s *prev;
+        struct listint_s *next;
 } listint_t;
 
 void print_array(const int *array, size_t size);
@@ -28,8 +28,9 @@ void bubble_sort(int *array, size_t size);
 void print(int arr[], int size);
 void swap(int *x, int *y);
 void swap(int *a, int *b);
-int partition(int arr[], int low, int high, size_t size);
-void quicksort(int arr[], size_t low, size_t high, int size);
+void _swap(int *array, ssize_t item1, ssize_t item2);
+int partition(int *array, ssize_t first, ssize_t last, size_t size);
+void quicksort(int *array, ssize_t first, ssize_t last, int size);
 void quick_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
