@@ -8,9 +8,9 @@
  */
 void swap(int *a, int *b)
 {
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+        int temp = *a;
+        *a = *b;
+        *b = temp;
 }
 
 /**
@@ -24,25 +24,31 @@ void swap(int *a, int *b)
  */
 int partition(int arr[], int low, int high, size_t size)
 {
-	int pivot = arr[low];
-	int k = high, i;
+        int pivot_index, pivot, k, i;
 
-	for (i = high; i > low; i--)
-	{
-		if (arr[i] > pivot)
-		{
-			if (arr[i] != arr[k])
-			{
-				swap(&arr[i], &arr[k--]);
-			}
-		}
-	}
-	if (arr[i] != arr[high])
-	{
-		swap(&arr[low], &arr[k]);
-		print_array(arr, size);
-	}
-	return (k);
+        pivot_index = low + rand() % (high - low + 1);
+
+        swap(&arr[low], &arr[pivot_index]);
+
+        pivot = arr[low];
+        k = high;
+
+        for (i = high; i > low; i--)
+        {
+                if (arr[i] > pivot)
+                {
+                        if (arr[i] != arr[k])
+                        {
+                                swap(&arr[i], &arr[k--]);
+                        }
+                }
+        }
+        if (arr[i] != arr[high])
+        {
+                swap(&arr[low], &arr[k]);
+                print_array(arr, size);
+        }
+        return (k);
 }
 
 /**
@@ -56,15 +62,15 @@ int partition(int arr[], int low, int high, size_t size)
 */
 void quicksort(int arr[], size_t low, size_t high, int size)
 {
-	int idx;
+        int idx;
 
-	if (low < high)
-	{
-		idx = partition(arr, low, high, size);
+        if (low < high)
+        {
+                idx = partition(arr, low, high, size);
 
-		quicksort(arr, low, idx - 1, size);
-		quicksort(arr, idx + 1, high, size);
-	}
+                quicksort(arr, low, idx - 1, size);
+                quicksort(arr, idx + 1, high, size);
+        }
 }
 
 /**
@@ -76,7 +82,7 @@ void quicksort(int arr[], size_t low, size_t high, int size)
 */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size < 2)
-		return;
-	quicksort(array, 0, size - 1, size);
+        if (!array || size < 2)
+                return;
+        quicksort(array, 0, size - 1, size);
 }
