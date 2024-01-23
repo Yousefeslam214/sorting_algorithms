@@ -1,75 +1,75 @@
 #include "sort.h"
-
 /**
- * swap -used to swap two elements
- *
- * @a: element 1
- * @b: element 2
- */
-void swap(int *a, int *b)
+*swap - the positions of two elements into an array
+*@array: array
+*@item1: array element
+*@item2: array element
+*/
+void _swap(int *array, ssize_t item1, ssize_t item2)
 {
-        int temp = *a;
-        *a = *b;
-        *b = temp;
+        int tmp;
+
+        tmp = array[item1];
+        array[item1] = array[item2];
+        array[item2] = tmp;
 }
-
 /**
- * partition - responsible for dividing an array into two parts
- *
- * @arr: the array
- * @low: low index
- * @high: high index
- * @size: size of the array
- * Return: pivot element position
+ *partition - partition sorting scheme implementation
+ *@array: array
+ *@first: first array element
+ *@last: last array element
+ *@size: size array
+ *Return: return the position of the last element sorted
  */
-int partition(int arr[], int low, int high, size_t size)
+int partition(int *array, ssize_t first, ssize_t last, size_t size)
 {
-        int pivot = arr[low];
-        int k = high, i;
-    
-        for(i = high; i > low; i--)
-        {
+        int pivot = array[last];
+        ssize_t current = first, finder;
 
-                if(arr[i] > pivot)
+        for (finder = first; finder < last; finder++)
+        {
+                if (array[finder] < pivot)
                 {
-                        swap(&arr[i], &arr[k--]);
+                        if (array[current] != array[finder])
+                        {
+                                _swap(array, current, finder);
+                                print_array(array, size);
+                        }
+                        current++;
                 }
         }
-        swap(&arr[low], &arr[k]);
-        print_array(arr, size);
-
-        return k;
-}
-
-/**
-* quicksort - sorts an array of integers in ascending order
-* using the Quick sort
-*
-* @arr: array of integers to be sorted
-* @low: low index
-* @high: high index
-* @size: size of the array
-*/
-void quicksort(int arr[], size_t low, size_t high, int size)
-{
-        int idx;
-
-        if (low < high)
+        if (array[current] != array[last])
         {
-                idx = partition(arr, low, high, size);
+                _swap(array, current, last);
+                print_array(array, size);
+        }
+        return (current);
+}
+/**
+ *quicksort - qucksort algorithm implementation
+ *@array: array
+ *@first: first array element
+ *@last: last array element
+ *@size: array size
+ */
+void quicksort(int *array, ssize_t first, ssize_t last, int size)
+{
+        ssize_t position = 0;
 
-                quicksort(arr, low, idx - 1, size);
-                quicksort(arr, idx + 1, high, size);
+
+        if (first < last)
+        {
+                position = partition(array, first, last, size);
+
+                quicksort(array, first, position - 1, size);
+                quicksort(array, position + 1, last, size);
         }
 }
-
 /**
-* quick_sort - sorts an array of integers in ascending order
-* using the Quick sort
-*
-* @array: array of integers to be sorted
-* @size: size of the array
-*/
+ *quick_sort - prepare the terrain to quicksort algorithm
+ *@array: array
+ *@size: array size
+ */
 void quick_sort(int *array, size_t size)
 {
         if (!array || size < 2)
