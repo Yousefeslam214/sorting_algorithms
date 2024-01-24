@@ -56,7 +56,6 @@ void quicksort(int *array, ssize_t first, ssize_t last, int size)
 {
         ssize_t position = 0;
 
-
         if (first < last)
         {
                 position = partition(array, first, last, size);
