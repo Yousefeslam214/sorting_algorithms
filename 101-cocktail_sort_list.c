@@ -6,7 +6,6 @@
  * @list: pointer to the list head
  * Return: no return
  **/
-
 void cocktail_sort_list(listint_t **list)
 {
     if (list == NULL || *list == NULL)
