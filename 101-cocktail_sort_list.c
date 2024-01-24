@@ -36,9 +36,9 @@ void cocktail_sort_list(listint_t **list)
                         if(temp->next != NULL)
                                 temp->next->prev = current;
                         temp->next = current;
-                        print_list(current);
                 }
                 current = next;
+                print_list(*list);
         }
         *list = sorted;
 }
