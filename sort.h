@@ -36,5 +36,5 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 listint_t *swap_list(listint_t *a, listint_t *b, listint_t **list);
 void selection_sort(int *array, size_t size);
-
+void cocktail_sort_list(listint_t **list);
 #endif
