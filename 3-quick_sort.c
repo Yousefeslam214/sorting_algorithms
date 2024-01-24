@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
-*swap - the positions of two elements into an array
+*_swap - the positions of two elements into an array
 *@array: array
 *@item1: array element
 *@item2: array element
